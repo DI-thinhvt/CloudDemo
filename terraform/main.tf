@@ -9,21 +9,12 @@ terraform {
   }
 
   # Backend configuration for GCS (Google Cloud Storage)
-  # Uncomment after running the bootstrap process (see backend.tf)
-  # 
-  # Steps to enable:
-  # 1. Apply bootstrap: terraform apply -target=google_storage_bucket.terraform_state
-  # 2. Uncomment the backend block below
-  # 3. Update the bucket name with your project ID
-  # 4. Run: terraform init -migrate-state
-  # 5. Confirm migration
-  # 6. Delete local terraform.tfstate file
-  #
-  # backend "gcs" {
-  #   bucket = "YOUR_PROJECT_ID-terraform-state"
-  #   prefix = "terraform/state"
-  # }
+  backend "gcs" {
+    bucket = "project-0c7a4c52-e85f-4da6-90a-terraform-state"
+    prefix = "terraform/state"
+  }
 }
+
 
 provider "google" {
   project = var.project_id
