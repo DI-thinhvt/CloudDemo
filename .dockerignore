@@ -1,0 +1,27 @@
+# Ignore git files
+.git
+.gitignore
+
+# Ignore CI/CD files
+.github
+
+# Ignore Terraform files
+terraform
+*.tfstate
+*.tfstate.*
+.terraform
+.terraform.lock.hcl
+
+# Ignore documentation
+README.md
+
+# Ignore IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
