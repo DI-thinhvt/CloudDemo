@@ -11,9 +11,6 @@ on:
       - 'Dockerfile'
       - '.dockerignore'
       - '.github/workflows/deploy.yml'
-    paths-ignore:
-      - 'terraform/**'
-      - '*.md'
   workflow_dispatch:
 
 env:
