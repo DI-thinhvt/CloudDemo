@@ -173,6 +173,14 @@ resource "google_service_account_iam_member" "github_act_as" {
   member             = "serviceAccount:${google_service_account.github_actions.email}"
 }
 
+# Allow GitHub Actions to act as the default Compute Engine service account
+# This is needed for Cloud Run deployments
+resource "google_project_iam_member" "github_act_as_compute" {
+  project = var.project_id
+  role    = "roles/iam.serviceAccountUser"
+  member  = "serviceAccount:${google_service_account.github_actions.email}"
+}
+
 # Allow GitHub Actions to impersonate the service account
 resource "google_service_account_iam_member" "github_workload_identity" {
   service_account_id = google_service_account.github_actions.name
