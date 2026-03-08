@@ -22,6 +22,11 @@ provider "google" {
 }
 
 # Enable required APIs
+resource "google_project_service" "cloudresourcemanager_api" {
+  service            = "cloudresourcemanager.googleapis.com"
+  disable_on_destroy = false
+}
+
 resource "google_project_service" "cloud_run_api" {
   service            = "run.googleapis.com"
   disable_on_destroy = false
