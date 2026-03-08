@@ -201,6 +201,13 @@ resource "google_project_iam_member" "github_security_admin" {
   member  = "serviceAccount:${google_service_account.github_actions.email}"
 }
 
+# Workload Identity Pool Admin - to manage Workload Identity Pools
+resource "google_project_iam_member" "github_workload_identity_admin" {
+  project = var.project_id
+  role    = "roles/iam.workloadIdentityPoolAdmin"
+  member  = "serviceAccount:${google_service_account.github_actions.email}"
+}
+
 # Service Usage Admin - to enable/disable APIs
 resource "google_project_iam_member" "github_service_usage_admin" {
   project = var.project_id
