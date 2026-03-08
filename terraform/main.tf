@@ -1,6 +1,6 @@
 terraform {
   required_version = ">= 1.0"
-  
+
   required_providers {
     google = {
       source  = "hashicorp/google"
@@ -61,7 +61,7 @@ resource "google_cloud_run_service" "website" {
     spec {
       containers {
         image = "${var.region}-docker.pkg.dev/${var.project_id}/${var.artifact_registry_name}/${var.image_name}:${var.image_tag}"
-        
+
         ports {
           container_port = 8080
         }
@@ -73,7 +73,7 @@ resource "google_cloud_run_service" "website" {
           }
         }
       }
-      
+
       container_concurrency = 80
     }
 
@@ -109,7 +109,7 @@ resource "google_iam_workload_identity_pool" "github_pool" {
   workload_identity_pool_id = "github-actions-pool"
   display_name              = "GitHub Actions Pool"
   description               = "Workload Identity Pool for GitHub Actions"
-  
+
   depends_on = [google_project_service.iam_api]
 }
 
