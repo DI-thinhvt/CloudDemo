@@ -48,7 +48,7 @@ Target audience: BrSE, Comtor, and Sales teams at Data Impact.
 - **CI/CD**: GitHub Actions
 
 ## 📁 Project Structure
-
+#
 ```
 CloudDemo/
 ├── index.html                         # Main HTML file
